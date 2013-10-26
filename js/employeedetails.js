@@ -6,10 +6,10 @@ $('#detailsPage').live('pageshow', function(event) {
 function displayEmployee(data) {
 	var employee = data.item;
 	console.log(employee);
-	$('#employeePic').attr('src', 'pics/' + employee.picture);
-	$('#fullName').text(employee.firstName + ' ' + employee.lastName);
-	$('#employeeTitle').text(employee.title);
-	$('#city').text(employee.city);
+	$('#employeePic').attr('src', 'pics/james_king.png');
+	$('#fullName').text(employee.title);
+	$('#employeeTitle').text(employee.description);
+	$('#city').text("Brasil");
 	console.log(employee.officePhone);
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
