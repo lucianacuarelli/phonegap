@@ -8,7 +8,7 @@ $('#employeeListPage').bind('pageinit', function(event) {
 
 function getEmployeeList() {
 	$.getJSON(serviceURL, function(data) {
-		alert(data.items);
+		alert(data[0].title);
 		//$('#employeeList li').remove();
 		//employees = data.items;
 		//$.each(employees, function(index, employee) {
