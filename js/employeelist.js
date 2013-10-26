@@ -3,12 +3,15 @@ var serviceURL = "http://nossotablet.hospedagemdesites.ws/teste/json/exercicios.
 var employees;
 
 $('#employeeListPage').bind('pageinit', function(event) {
-	getEmployeeList();
+	getExerciseList();
 });
 
-function getEmployeeList() {
+function getExerciseList() {
 	$.getJSON(serviceURL, function(data) {
 		alert(data);
+		
+		
+		
 		//$('#employeeList li').remove();
 		//employees = data.items;
 		//$.each(employees, function(index, employee) {
