@@ -8,7 +8,7 @@ $('#employeeListPage').bind('pageinit', function(event) {
 
 function getExerciseList() {
 	$.getJSON(serviceURL, function(data) {
-		alert(data);
+		alert(data.items);
 		
 		
 		
