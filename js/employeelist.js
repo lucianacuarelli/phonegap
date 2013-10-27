@@ -12,7 +12,7 @@ function getEmployeeList() {
 		employees = data;
 		$.each(employees, function(index, employee) {
 			$('#employeeList').append('<li><a href="employeedetails.html?id=' + employee.id + '">' +
-					/*'<img src="pics/' + employee.picture + '"/>' +*/
+					/*'<img src="pics/' + employee.image_url + '"/>' +*/
 					'<h4>' + employee.title + '</h4>' +
 					'<p>' + employee.description + '</p>' +
 				'<span class="ui-li-count">' + "Brasil" + '</span></a></li>');

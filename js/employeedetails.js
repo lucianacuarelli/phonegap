@@ -4,7 +4,7 @@ $('#detailsPage').live('pageshow', function(event) {
 });
 
 function displayEmployee(data) {
-	var employee = data.item;
+	var employee = data;
 	console.log(employee);
 	$('#employeePic').attr('src', 'pics/james_king.png');
 	$('#fullName').text(employee.title);
