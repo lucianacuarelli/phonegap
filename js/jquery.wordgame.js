@@ -35,6 +35,7 @@
 		}
 		
 		function GetRandomLetter() {
+			alert(allowableLetters);
 			if (allowableLetters.length == 0) {
 				var letters1 = config.common.split(",");
 				var letters2 = config.common.split(",");
@@ -86,8 +87,8 @@
 			
 			var output = '<div class="' + config.classmodifier + 'controls">' +
 				'<p class="' + config.classmodifier + 'timer"></p>' +
-				'<p class="' + config.classmodifier + 'add" tabindex="0" style="cursor: pointer;">Add</p>' +
-				'<p class="' + config.classmodifier + 'clear" tabindex="0" style="cursor: pointer;">Clear</p>' +
+				'<p class="' + config.classmodifier + 'add" tabindex="0" style="cursor: pointer;">Adicionar</p>' +
+				'<p class="' + config.classmodifier + 'clear" tabindex="0" style="cursor: pointer;">Limpar</p>' +
 				'<p class="' + config.classmodifier + 'word"></p>' +
 				'<ul class="' + config.classmodifier + 'list"></ul>' +
 				'</div>' +
@@ -157,6 +158,7 @@
 			// Add Button
 			$("." + config.classmodifier + "add").bind("click", function () {
 				$Word = $("." + config.classmodifier + "word");
+				alert($Word.text());
 				$List = $("." + config.classmodifier + "list");
 				var wordSoFar = $Word.text();
 				if (wordSoFar.length >= config.minimumwordlength) {

@@ -1,102 +1,43 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Word Game Example</title>
-	<link rel="stylesheet" type="text/css" href="css/optional.css">
-	<style type="text/css">
-		/* Optional styles */
-		
-		.wgcontrols {
-			float: left;
-			padding: 1em 2em 1em 1em;
-			width: 100px;
-		}
-		
-		.wggrid {
-			float: left;
-		}
-		
-		.wgitem {
-			border: 1px solid silver;
-			background-color: #444444;
-			color: White;
-			font-size: 1.6em;
-			text-transform: uppercase;
-			overflow: hidden;
-		}
-		
-		.wgcontrols p {
-			padding: 2px 5px;
-		}
-		
-		.wgadd:hover, .wgclear:hover {
-			background-color: #444444;
-			color: White;
-		}
-		
-		.wgselected {
-			background-color: Green;
-		}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.wordsearchgame.js"></script>
+        <link  rel="stylesheet" type="text/css" href="css/jquery.wordsearchgame.css">
 
-	</style>
-</head>
-<body>
-	<div id="links">
-		<p>This is the live demo, <a href="http://www.stevefenton.co.uk/Content/Jquery-Word-Game/">view the documentation</a>. 
-		Written by <a href="http://www.stevefenton.co.uk/">Steve Fenton</a>.</p>
-	</div>
-	<div id="header">
-		<h1>Word Game Example</h1>
-	</div>
-	<div id="maincontent">
-		<div id="what">
-			<h2>Word Game Summary</h2>
+        <script>
+		$(document).ready( function () {
+			var words = "terra,marte,jupiter";/*,neptune,pluto,saturn,jupiter,one,two,"+
+						"three,four,five,six,seven,eight,mozart,bach,meyer,rose,mahler";*/
+			
+			//attach the game to a div
+			$("#theGrid").wordsearchwidget(
+				{"wordlist" : words,
+				"gridsize" : 10, 
+				"onWordFound" : function(ob){
+					$('#onWordFound').html("Found: " + ob.word);
+					d = setTimeout(function(){
+						clearTimeout(d);
+						$('#onWordFound').html(" ");					
+					},3000);
 
-			<p>The jQuery Word Game project is a plugin that creates word grids for use in word games.</p>
-		</div>
-		<div id="how">
-			<h3>5x5 Grid</h3>
-			<div id="wordgame1"></div>
-			<p>Please <a href="http://www.stevefenton.co.uk/Content/Jquery-Word-Game/">read the word game documentation</a> 
-			for instructions on how to use the plugin.</p>
+				},
+				"onWordSearchComplete" :function(){
+					$('#onWordSearchComplete').html("Word Search Complete");
+				}
+			});
+		});
 
-		</div>
-		<div id="options">
-			<h2>Options</h2>
-			<dl>
-				<dt>classmodifier</dt>
-				<dd>Used to apply class names to the elements created by the plugin. You only need to specify a class modifier if you have a name-clash.</dd>
-				
-				<dt>gridwidth</dt>
-				<dd>The number of columns to display.</dd>
-				
-				<dt>gridheight</dt>
-				<dd>The number of rows to display.</dd>
-				
-				<dt>allowable</dt>
-				<dd>A comma separated list of allowable values.</dd>
-			</dl>
-		</div>
-	</div>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.wordgame.js"></script>
-	<script type="text/javascript">
-		$("#wordgame1").wordgame({ timer: 180 });
-	</script>
-
-	<!-- Just for web stats... not needed for the plugin -->
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36818004-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-
-</body>
+    
+        </script>
+        
+    </head>
+    <body>
+        <div id="theGrid"></div>
+	<div id="onWordSearchComplete"></div>
+	<div id="onWordFound"></div>
+    </body>
 </html>
