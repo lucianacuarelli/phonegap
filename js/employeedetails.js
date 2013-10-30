@@ -7,7 +7,6 @@ $('#detailsPage').live('pageshow', function(event) {
 // init
 //----------------------------
 function start() {
-	alert('start');
 	var arWords = ['banana','uva','celular','macarena','chuva',
 				   'orelha','macarrão','laranja','cereja','limão',
 				   'gato','rato','borracha','chapéu','óculos',
@@ -16,10 +15,10 @@ function start() {
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 				   
 	UseDebug.p(word);
+	alert(word);
 	$('#city').text("word");
 }
 function displayEmployee(data) {
-	alert(data);
 	start();
 	
 	var employee = data;
@@ -27,7 +26,6 @@ function displayEmployee(data) {
 	$('#employeePic').attr('src', 'pics/james_king.png');
 	$('#fullName').text(employee.title);
 	$('#employeeTitle').text(employee.description);
-	$('#city').text("BrasilX");
 	console.log(employee.officePhone);
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
