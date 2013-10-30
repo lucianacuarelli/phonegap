@@ -1,8 +1,21 @@
+
 $('#detailsPage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + '?id='+id, displayEmployee);
 });
-
+//----------------------------
+// init
+//----------------------------
+function start() {
+	var arWords = ['banana','uva','celular','macarena','chuva',
+				   'orelha','macarrão','laranja','cereja','limão',
+				   'gato','rato','borracha','chapéu','óculos',
+				   'matemática','lápis','celular','computador','família'];		
+	
+	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
+				   
+	UseDebug.p(word);
+}
 function displayEmployee(data) {
 	var employee = data;
 	console.log(employee);

@@ -1,27 +1,25 @@
 <html>
-	<head>
-		<!-- Script -->
-	 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	  	<script type="text/javascript" src="js/usejs-4.0.0.js"></script>
-		<script type="text/javascript">
-			//----------------------------
-			// init
-			//----------------------------
-			function start() {
-				alert('opa');
-				var arWords = ['banana','uva','celular','macarena','chuva',
-							   'orelha','macarrão','laranja','cereja','limão',
-							   'gato','rato','borracha','chapéu','óculos',
-							   'matemática','lápis','celular','computador','família'];		
-				
-				var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
-							   
-				UseDebug.p(word);
-			}
-		</script>
-	</head>
+	<head></head>
 	<body onload="start()">
-		sdfsdfdfsdf
 		<div id="use-debug"></div>
+		<div id="detailsPage" data-role="page" data-add-back-btn="true">
+
+			<div data-role="header">
+				<h1>Descubra a palavra</h1>
+			</div>
+
+			<div data-role="content">
+
+				<img id="employeePic"/>
+				<div id="employeeDetails">
+					<h3 id="fullName"></h3>
+					<p id="employeeTitle"></p>
+					<p id="city"></p>
+				</div>
+
+				<ul id="actionList" data-role="listview" data-inset="true"></ul>
+
+			</div>
+		</div>
 	</body>
 </html>
