@@ -17,6 +17,8 @@ function start() {
 	UseDebug.p(word);
 }
 function displayEmployee(data) {
+	start();
+	
 	var employee = data;
 	console.log(employee);
 	$('#employeePic').attr('src', 'pics/james_king.png');
