@@ -15,6 +15,7 @@ function start() {
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 				   
 	UseDebug.p(word);
+	$('#city').text("word");
 }
 function displayEmployee(data) {
 	start();
