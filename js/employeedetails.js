@@ -23,8 +23,11 @@ function displayEmployee(data) {
     //$arData = split(",", data.information, 5);
     
 	$('#use-debug').attr(data);
+	
 	alert(data[0].information);
-	start();
+	var arWords = split(",", data[0].information);
+	alert(arWords[0]);
+	//start();
 	
 	var employee = data;
 	console.log(employee);
