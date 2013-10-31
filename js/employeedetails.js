@@ -25,7 +25,8 @@ function displayEmployee(data) {
 	$('#use-debug').attr(data);
 	
 	alert(data[0].information);
-	var arWords = split(",", data[0].information);
+	var information = data[0].information;
+	var arWords = information.split(",");
 	alert(arWords[0]);
 	//start();
 	
