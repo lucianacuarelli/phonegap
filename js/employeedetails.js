@@ -18,15 +18,15 @@ function displayEmployee(data) {
 	
 	alert(word);
 	
-	var exercise = data[0];
+	var exer = data[0];
 	alert(exercise);
-	//$('#employeePic').attr('src', 'pics/james_king.png');
+	$('#employeePic').attr('src', 'pics/james_king.png');
 	alert(exercise.title);
-	$('#fullName').text(exercise.title);
-	$('#employeeTitle').text(exercise.description);
-	alert(exercise.description);
-	$('#city').text(exercise.exercise_type);
-	alert(exercise.exercise_type);
+	$('#fullName').text(exer.title);
+	$('#employeeTitle').text(exer.description);
+	alert(exercexerise.description);
+	$('#city').text(exercise.exer);
+	alert(exercise.exer);
 
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
