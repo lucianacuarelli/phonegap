@@ -20,7 +20,7 @@ function start() {
 }
 function displayEmployee(data) {
 	
-    $arData = split(",", data.information, 5);
+    //$arData = split(",", data.information, 5);
     
 	$('#use-debug').attr(data);
 	alert(data[0].information);
