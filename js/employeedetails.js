@@ -19,6 +19,8 @@ function start() {
 	$('#city').text("word");
 }
 function displayEmployee(data) {
+	$('#use-debug').attr(data);
+	alert(data[0].title);
 	start();
 	
 	var employee = data;
