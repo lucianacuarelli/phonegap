@@ -6,36 +6,23 @@ $('#detailsPage').live('pageshow', function(event) {
 //----------------------------
 // init
 //----------------------------
-function start() {
-	var arWords = ['banana','uva','celular','macarena','chuva',
-				   'orelha','macarrão','laranja','cereja','limão',
-				   'gato','rato','borracha','chapéu','óculos',
-				   'matemática','lápis','celular','computador','família'];		
-	
-	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
-				   
-	UseDebug.p(word);
-	alert(word);
-	$('#city').text("word");
-}
 function displayEmployee(data) {
-	
-    //$arData = split(",", data.information, 5);
-    
 	$('#use-debug').attr(data);
 	
-	alert(data[0].information);
+	//Obtem lista de palavras retornadas do JSON para o exercício selecionado
 	var information = data[0].information;
+	//Obtem palavras individuais
 	var arWords = information.split(",");
-	alert(arWords[0]);
-	//start();
+	//Randomiza a seleção de palavras
+	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
-	var employee = data;
+	var exercise = data[0];
 	console.log(employee);
 	$('#employeePic').attr('src', 'pics/james_king.png');
-	$('#fullName').text(employee.title);
-	$('#employeeTitle').text(employee.description);
-	console.log(employee.officePhone);
+	$('#fullName').text(exercise.title);
+	$('#employeeTitle').text(exercise.description);
+	$('#city').text(exercise.exercise_type);
+
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
 				'<p>' + employee.managerFirstName + ' ' + employee.managerLastName + '</p></a></li>');
