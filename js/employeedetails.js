@@ -19,8 +19,11 @@ function start() {
 	$('#city').text("word");
 }
 function displayEmployee(data) {
+	
+    $arData = split(",", data.information, 5);
+    
 	$('#use-debug').attr(data);
-	alert(data[0].title);
+	alert(data[0].information);
 	start();
 	
 	var employee = data;
