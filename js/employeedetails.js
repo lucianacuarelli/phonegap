@@ -16,12 +16,16 @@ function displayEmployee(data) {
 	//Randomiza a seleção de palavras
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
+	alert(word);
 	var exercise = data[0];
 	console.log(employee);
-	$('#employeePic').attr('src', 'pics/james_king.png');
+	//$('#employeePic').attr('src', 'pics/james_king.png');
+	alert(exercise.title);
 	$('#fullName').text(exercise.title);
 	$('#employeeTitle').text(exercise.description);
+	alert(exercise.description);
 	$('#city').text(exercise.exercise_type);
+	alert(exercise.exercise_type);
 
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
