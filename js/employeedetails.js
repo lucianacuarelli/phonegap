@@ -19,8 +19,6 @@ $(function() {
 	
 	var words=['CAT','CAR','BAG','BAR','CREEP','ANDROID']
 	
-	var theWord = prompt("Please enter your word(for 2 player), or just hit return for  a random word [for single player]" );
-	
 	//Obtem lista de palavras retornadas do JSON para o exercício selecionado
 	var information = data[0].information;
 	//Coloca tudo em letra maiuscula
