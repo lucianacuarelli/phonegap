@@ -64,7 +64,7 @@ function processLetter(letter) {
 		$('#secret').text(secret);
 		if (secret.indexOf('_') == -1) {
 			alert('Voce ganhou!');
-			displayEmployee(data)
+			displayEmployee(data);
 		}else {
 			currentImage++;
 			if (currentImage == 7) {
