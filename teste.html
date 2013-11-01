@@ -1,0 +1,164 @@
+<html class='ui-mobile'>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Android Hangman</title>
+<link rel='stylesheet' href='http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css' />
+<style>
+#content {
+	text-align: center;
+}
+.image {
+	position: relative;
+	width: 254px;
+	height: 340px;
+	margin-left: 50%;
+}
+.hangman {
+	position: absolute;
+	top: 0px;
+	left: -127px;
+	opacity:0;
+}
+#hangman_1 {
+	opacity:1.0;
+}
+#secret {
+	font-family: monospace, serif;
+	font-size: 4em;
+	font-weight: bold;
+	letter-spacing: 10px;
+}
+.letters {
+	margin-top: 20px;
+}
+.letters span {
+	font-family: monospace, serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: rgb(0,192,255);
+	border-radius: 4px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.letters span:ACTIVE {
+	background-color: aqua;
+}
+
+
+.letters span.disabled {
+	background-color: rgb(192,192,192);
+	
+}
+</style>
+</head>
+
+<body class='ui-mobile-viewport ui-overlay-c'>
+<div data-role='page'>
+	<div class='ui-header ui-bar-a' data-role='header'>
+		<h1>MQ's Hangman</h1>
+	</div>
+	<div id='content' data-role='content'>
+		<div class='image'>
+			<img src='Hangman_1.png' alt='Hangman' class='hangman' id='hangman_1'/>
+			<img src='Hangman_2.png' alt='Hangman' class='hangman' id='hangman_2'/>
+			<img src='Hangman_3.png' alt='Hangman' class='hangman' id='hangman_3'/>
+			<img src='Hangman_4.png' alt='Hangman' class='hangman' id='hangman_4'/>
+			<img src='Hangman_5.png' alt='Hangman' class='hangman' id='hangman_5'/>
+			<img src='Hangman_6.png' alt='Hangman' class='hangman' id='hangman_6'/>
+			<img src='Hangman_7.png' alt='Hangman' class='hangman' id='hangman_7'/>
+		</div>
+		<div id='secret'>_____</div>
+		<div class='letters'>
+			<span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span>
+			<br/>
+			<br/>
+			<span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span>
+			<br/>
+			<br/>
+			<span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+			<br/>
+			<br/>
+		</div>
+	</div>
+	<div class='ui-footer ui-bar-a' data-role="footer" data-position="fixed">
+		<h1>CoderDojo Cork Avego</h1>
+	</div>
+</div>
+<script src='http://code.jquery.com/jquery-1.8.2.min.js'></script>
+<script src='http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js'></script>
+
+<script>
+$(function() {
+
+	var word;
+	var remainingLetters;
+	var secret;
+	var currentImage = 1;
+	
+	function setup(theWord) {
+		word = theWord.toUpperCase();
+		remainingLetters = word;
+		secret = word.replace(/./g, '_');
+		$('#secret').text(secret);
+	}
+	
+	var words=['CAT','CAR','BAG','BAR','CREEP','ANDROID']
+	
+	var theWord = prompt("Please enter your word(for 2 player), or just hit return for  a random word [for single player]" );
+	if(!theWord) {
+		theWord = words[Math.floor(Math.random() * words.length)];
+	}
+	setup(theWord);
+					
+	String.prototype.replaceAt = function(index, character) {
+		return this.substr(0, index) + character + this.substr(index + character.length);
+	}
+	
+ 	function processLetter(letter) {
+		var found = false;
+		// alert(remainingLetters);
+		for (var i = 0 ; i < remainingLetters.length ; i++) {
+			//alert(remainingLetters.charAt(i));
+			if (remainingLetters.charAt(i) == letter) {
+				remainingLetters = remainingLetters.replaceAt(i, '_');
+				secret = secret.replaceAt(i, letter);
+				found = true;	
+			}		
+		 }      
+		if (found) {
+			$('#secret').text(secret);
+			if (secret.indexOf('_') == -1) {
+				alert('you won!!!!!!!!!!!!!!!!!!!!!!!!!!=)');
+				location.reload();
+			}
+			} else {
+				currentImage++;
+				var imageId = "#hangman_" + currentImage;
+				$(imageId).fadeTo(300, 1.0, function() {
+					if (currentImage == 7) {
+						$('#secret').text(word)
+						alert('you lost!=(');
+						location.reload();
+	
+					});
+				}
+			}
+	
+	
+	}
+	$('.letters span').click(function(event) 
+		var letter = event.target.innerText;
+		$(event.target).unbind("click");
+		$(event.target).addClass("disabled");
+		processLetter(letter);
+	});
+});
+</script>
+</body>
+</html>
+    

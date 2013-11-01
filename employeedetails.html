@@ -1,5 +1,56 @@
 <html>
-	<head></head>
+	<head>
+		<style>
+			#content {
+				text-align: center;
+			}
+			.image {
+				position: relative;
+				width: 254px;
+				height: 340px;
+				margin-left: 50%;
+			}
+			.hangman {
+				position: absolute;
+				top: 0px;
+				left: -127px;
+				opacity: 0;
+			}
+			#hangman_1 {
+				opacity: 1.0;
+			}
+			#secret {
+				font-family: monospace, serif;
+				font-size: 4em;
+				font-weight: bold;
+				letter-spacing: 10px;
+			}
+			.letters {
+				margin-top: 20px;
+			}
+			.letters span {
+				font-family: monospace, serif;
+				font-size: 2em;
+				font-weight: bold;
+				padding-right: 5px;
+				padding-left: 5px;
+				margin-left: 5px;
+				margin-right: 5px;
+				background-color: rgb(0,192,255);
+				border-radius: 4px;
+				cursor: pointer;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+			}
+			.letters span:ACTIVE {
+				background-color: aqua;
+			}
+
+			.letters span.disabled {
+				background-color: rgb(192,192,192);
+			}
+		</style>
+	</head>
 	<body onload="start()">
 		<div id="use-debug"></div>
 		<div id="detailsPage" data-role="page" data-add-back-btn="true">
@@ -16,8 +67,19 @@
 					<p id="description"></p>
 					<p id="type"></p>
 				</div>
-				
-				<div id="exerciseContent">
+
+				<div id="exerciseContent"></div>
+
+				<div class='letters'>
+					<span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span>
+					<br/>
+					<br/>
+					<span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span>
+					<br/>
+					<br/>
+					<span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+					<br/>
+					<br/>
 				</div>
 
 				<ul id="actionList" data-role="listview" data-inset="true"></ul>
