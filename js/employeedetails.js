@@ -28,7 +28,6 @@ function displayEmployee(data) {
 	secret = word.replace(/./g, '_');
 	secret = secret.substring(1);
 	
-	alert(remainingLetters);
 	$('#secret').text(secret);
 	
 	$('#title').html(data[0].title);
@@ -64,12 +63,13 @@ function processLetter(letter) {
 	if (found) {
 		$('#secret').text(secret);
 		if (secret.indexOf('_') == -1) {
-			alert('Você ganhou!');
+			alert('Voce ganhou!');
+			displayEmployee(data)
 		}else {
 			currentImage++;
 			if (currentImage == 7) {
 				$('#secret').text(word);
-				alert('Você perdeu!');
+				alert('Voce perdeu!');
 
 			}
 		}
