@@ -24,6 +24,8 @@ function displayEmployee(data) {
 	
 	remainingLetters = word;
 	
+	alert(word);
+	
 	//Palavra secreta
 	secret = word.replace(/./g, '_');
 	$('#secret').text(secret);
@@ -39,12 +41,6 @@ function displayEmployee(data) {
 		processLetter(letter);
 	});
 	
-	/*$('#employeePic').attr('src', 'pics/james_king.png');
-	alert(exercise.title);
-	
-	alert(exercexerise.description);
-	$('#city').text(exercise.exer);
-	alert(exercise.exer);*/
 	$('#actionList').listview('refresh');
 	
 }
