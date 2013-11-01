@@ -32,7 +32,7 @@ function displayEmployee(data) {
 	
 	$('#title').html(data[0].title);
 	$('#description').html(data[0].description);
-	$('#exerciseContent').html(word + '' + remainingLetters);
+	$('#exerciseContent').html(secret + '' + remainingLetters);
 	
 	$('.letters span').click(function(event){
 		var letter = event.target.innerText;
@@ -52,11 +52,11 @@ String.prototype.replaceAt = function(index, character) {
 function processLetter(letter) {
 	var found = false;
 	// alert(remainingLetters);
-	$('#exerciseContent').html(word + '' + remainingLetters);
+	$('#exerciseContent').html(secret + '' + remainingLetters);
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
 		//alert(remainingLetters.charAt(i));
 		if (remainingLetters.charAt(i) == letter) {
-			remainingLetters = remainingLetters.replaceAt(i-1, '_');
+			remainingLetters = remainingLetters.replaceAt(i, '_');
 			secret = secret.replaceAt(i-1, letter);
 			found = true;	
 		}		
