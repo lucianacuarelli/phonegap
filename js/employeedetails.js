@@ -3,6 +3,9 @@ $('#detailsPage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + '?id='+id, displayEmployee);
 });
+
+var secret;
+
 //----------------------------
 // init
 //----------------------------
@@ -19,7 +22,7 @@ function displayEmployee(data) {
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
 	//Palavra secreta
-	var secret = word.replace(/./g, '_');
+	secret = word.replace(/./g, '_');
 	$('#secret').text(secret);
 	
 	$('#title').html(data[0].title);
