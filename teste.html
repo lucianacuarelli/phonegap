@@ -134,18 +134,13 @@ $(function() {
 			$('#secret').text(secret);
 			if (secret.indexOf('_') == -1) {
 				alert('Você ganhou!');
-				location.reload();
 			}else {
 				currentImage++;
-				var imageId = "#hangman_" + currentImage;
-				$(imageId).fadeTo(300, 1.0, function() {
-					if (currentImage == 7) {
-						$('#secret').text(word);
-						alert('Você perdeu!');
-						location.reload();
-	
-					}
-				});
+				if (currentImage == 7) {
+					$('#secret').text(word);
+					alert('Você perdeu!');
+
+				}
 			}
 		}
 	}
