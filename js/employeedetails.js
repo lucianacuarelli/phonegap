@@ -61,6 +61,7 @@ function getUrlVars() {
 
 function replaceAt(str,index,chr) {
     if(index > str.length-1) return str;
+    alert(str.substr(0,index) + chr + str.substr(index+1));
     return str.substr(0,index) + chr + str.substr(index+1);
 }
 
@@ -70,6 +71,7 @@ function processLetter(letter) {
 		if (remainingLetters.charAt(i) == letter) {
 			remainingLetters = remainingLetters.replaceAt(i, '_');
 			secret = replaceAt(secret, i, letter);
+			$('#secret').text(secret);
 			found = true;	
 		}		
 	 }      
