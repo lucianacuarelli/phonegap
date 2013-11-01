@@ -28,7 +28,6 @@ function displayEmployee(data) {
 	
 	$('.letters span').click(function(event){
 		var letter = event.target.innerText;
-		alert(letter);
 		$(event.target).unbind("click");
 		$(event.target).addClass("disabled");
 		processLetter(letter);
