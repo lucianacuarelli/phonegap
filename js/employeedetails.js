@@ -18,6 +18,10 @@ function displayEmployee(data) {
 	//Randomiza a seleção de palavras
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
+	//Palavra secreta
+	var secret = word.replace(/./g, '_');
+	$('#secret').text(secret);
+	
 	$('#title').html(data[0].title);
 	$('#description').html(data[0].description);
 	$('#exerciseContent').html(word);
