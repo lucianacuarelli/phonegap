@@ -22,6 +22,8 @@ function displayEmployee(data) {
 	//Randomiza a seleção de palavras
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
+	remainingLetters = word;
+	
 	//Palavra secreta
 	secret = word.replace(/./g, '_');
 	$('#secret').text(secret);
@@ -61,7 +63,6 @@ function getUrlVars() {
 
 function replaceAt(str,index,chr) {
     if(index > str.length-1) return str;
-    alert(str.substr(0,index) + chr + str.substr(index+1));
     return str.substr(0,index) + chr + str.substr(index+1);
 }
 
@@ -74,7 +75,7 @@ function processLetter(letter) {
 			$('#secret').text(secret);
 			found = true;	
 		}		
-	 }      
+	}      
 	if (found) {
 		$('#secret').text(secret);
 		if (secret.indexOf('_') == -1) {
