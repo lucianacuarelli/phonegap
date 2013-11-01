@@ -61,7 +61,6 @@ String.prototype.replaceAt = function(index, character) {
 }
 
 function processLetter(letter) {
-	alert(letter);
 	var found = false;
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
 		if (remainingLetters.charAt(i) == letter) {
