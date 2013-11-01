@@ -27,6 +27,8 @@ function displayEmployee(data) {
 	//Palavra secreta
 	secret = word.replace(/./g, '_');
 	secret = secret.substring(1);
+	
+	alert(secret);
 	$('#secret').text(secret);
 	
 	$('#title').html(data[0].title);
