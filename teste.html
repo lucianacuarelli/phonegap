@@ -135,8 +135,7 @@ $(function() {
 			if (secret.indexOf('_') == -1) {
 				alert('you won!!!!!!!!!!!!!!!!!!!!!!!!!!=)');
 				location.reload();
-			}
-			} else {
+			}else {
 				currentImage++;
 				var imageId = "#hangman_" + currentImage;
 				$(imageId).fadeTo(300, 1.0, function() {
@@ -145,12 +144,9 @@ $(function() {
 						alert('you lost!=(');
 						location.reload();
 	
-					});
+					};
 				}
 			}
-	
-	
-	}
 	$('.letters span').click(function(event) 
 		var letter = event.target.innerText;
 		$(event.target).unbind("click");

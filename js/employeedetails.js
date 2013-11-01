@@ -26,6 +26,13 @@ function displayEmployee(data) {
 	$('#description').html(data[0].description);
 	$('#exerciseContent').html(word);
 	
+	$('.letters span').click(function(event) 
+		var letter = event.target.innerText;
+		$(event.target).unbind("click");
+		$(event.target).addClass("disabled");
+		processLetter(letter);
+	});
+	
 	/*$('#employeePic').attr('src', 'pics/james_king.png');
 	alert(exercise.title);
 	
@@ -48,85 +55,33 @@ function getUrlVars() {
     return vars;
 }
 
-function Forca(params){
+function processLetter(letter) {
+	var found = false;
+	// alert(remainingLetters);
+	for (var i = 0 ; i < remainingLetters.length ; i++) {
+		//alert(remainingLetters.charAt(i));
+		if (remainingLetters.charAt(i) == letter) {
+			remainingLetters = remainingLetters.replaceAt(i, '_');
+			secret = secret.replaceAt(i, letter);
+			found = true;	
+		}		
+	 }      
+	if (found) {
+		$('#secret').text(secret);
+		if (secret.indexOf('_') == -1) {
+			alert('you won!!!!!!!!!!!!!!!!!!!!!!!!!!=)');
+			location.reload();
+		}else {
+			currentImage++;
+			var imageId = "#hangman_" + currentImage;
+			$(imageId).fadeTo(300, 1.0, function() {
+				if (currentImage == 7) {
+					$('#secret').text(word)
+					alert('you lost!=(');
+					location.reload();
 
-	var root = this.elemento = params.Elemento || document.body;
-	this.Palavras = params.Palavras || []; // vetor de palavras
-	this.Palavra =" ";  // palavra corrente
-	this.Erros = 0; // número de errros
-	this.Boneco = " "; // desenho do boneco
-	
-	this.Teclado = function(){ // metodo responsável por montar o teclado.
-	var teclado = document.getElementById("forca_teclado");
-	if(!teclado){
-	teclado = document.createElement("div");
-	teclado.setAttribute("id","forca_teclado");
-	teclado.setAttribute("class","teclado");
-	for(var i = 65; i < 91; i++){
-	var tecla = document.createElement("div");
-	tecla.setAttribute("class","tecla");
-	tecla.innerHTML = String.fromCharCode(i);
-	tecla.setAttribute("title",String.fromCharCode(i));
-	if(tecla.addEventListener )
-	tecla.addEventListener(‘click’,function(){ root.Validar(this); },false);
-	else
-	tecla.attachEvent(‘onclick’,function(e){ root.Validar(event.srcElement);  });
-	teclado.appendChild(tecla);
-	}
-	elemento.appendChild(teclado);
-	}
-	}
-	this.Sorteio = function(){ //Método responsável pelo sorteio de uma nova palavra.
-	var novoIndice = Math.ceil(Math.random()*params.Palavras.length-1)
-	root.Palavra = params.Palavras[novoIndice];
-	var painel = document.getElementById("forca_painel");
-	if(!painel){
-	painel = document.createElement("div");
-	painel.setAttribute("id","forca_painel");
-	painel.setAttribute("class","painel");
-	elemento.appendChild(painel)
-	}
-	painel.innerHTML = "";
-	for(var i = 0; i < root.Palavra.length;i++){
-	var letra = document.createElement("div");
-	letra.setAttribute("id",root.Palavra.substr(i,1));
-	letra.setAttribute("class","letra");
-	letra.innerHTML = "";//root.Palavra.substr(i,1);
-	painel.appendChild(letra);
-	}
-	}
-	this.Validar = function(letra){   // Método responsável por validar e desenhar o boneco.
-	var desenho = document.getElementById("forca_desenho");
-	if(!desenho){
-	desenho = document.createElement("div");
-	desenho.setAttribute("id","forca_desenho");
-	elemento.appendChild(desenho);
-	}
-	var boneco;
-	if(root.Palavra.indexOf(letra.title) == -1){
-	this.Erros++;
-	switch(this.Erros){
-	case 1: root.Boneco += "\n   o"; break;
-	case 2: root.Boneco += "\n  \/"; break;
-	case 3: root.Boneco += "|"; break;
-	case 4: root.Boneco += "\\"; break;
-	case 5: root.Boneco += "\n  /"; break;
-	case 6: root.Boneco += " \\\n <button onclick=’window.location.reload(true);’ style=’padding:0px;width:85px;border:1px solid black;’>GAME OVER</button>"; break;
-	}
-	desenho.innerHTML = " <pre> "+root.Boneco+" </pre> ";
-	}
-	else
-	{
-	var indices = [];
-	for(var i = 0; i < root.Palavra.length;i++)
-	if(root.Palavra.substr(i,1) == letra.title) indices.push(i);
-	painel = document.getElementById("forca_painel").getElementsByTagName("div");
-	for(var i = 0; i < indices.length; i++)
-	painel[indices[i]].innerHTML =  letra.title;
-	}
-	}
-	this.Comecar = function(){ // Método responsável por iniciar tudo, criado só para deixar a chamada mais organizada!  ;-) 
-	root.Teclado();
-	root.Sorteio();
+				};
+			}
+		}
 	}
 }
