@@ -4,6 +4,8 @@ $('#detailsPage').live('pageshow', function(event) {
 	$.getJSON(serviceURL + '?id='+id, displayEmployee);
 });
 
+var word;
+var remainingLetters;
 var secret;
 
 //----------------------------
@@ -81,7 +83,7 @@ function processLetter(letter) {
 			var imageId = "#hangman_" + currentImage;
 			$(imageId).fadeTo(300, 1.0, function() {
 				if (currentImage == 7) {
-					$('#secret').text(word)
+					$('#secret').text(word);
 					alert('Você perdeu!');
 					location.reload();
 

@@ -115,7 +115,7 @@ $(function() {
 	}
 	setup(theWord);
 					
-	String.prototype.replaceAt = function(index, character) {
+	function replaceAt(index, character) {
 		return this.substr(0, index) + character + this.substr(index + character.length);
 	}
 	
@@ -126,7 +126,7 @@ $(function() {
 			//alert(remainingLetters.charAt(i));
 			if (remainingLetters.charAt(i) == letter) {
 				remainingLetters = remainingLetters.replaceAt(i, '_');
-				secret = secret.replaceAt(i, letter);
+				secret = replaceAt(i, letter);
 				found = true;	
 			}		
 		 }      
