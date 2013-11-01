@@ -26,7 +26,7 @@ function displayEmployee(data) {
 	$('#description').html(data[0].description);
 	$('#exerciseContent').html(word);
 	
-	$('.letters span').click(function(event) 
+	$('.letters span').click(function(event){
 		var letter = event.target.innerText;
 		alert(letter);
 		$(event.target).unbind("click");
