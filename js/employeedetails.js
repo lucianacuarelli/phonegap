@@ -16,7 +16,7 @@ function displayEmployee(data) {
 	//Randomiza a seleção de palavras
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
-	$('#title').innerHTML(data[0].title);
+	$('#title').html(data[0].title);
 	$('#description').innerHTML(data[0].description);
 	$('#exerciseContent').innerHTML(word);
 	
