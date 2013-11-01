@@ -1,4 +1,3 @@
-
 $('#detailsPage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + '?id='+id, displayEmployee);
@@ -60,8 +59,9 @@ function getUrlVars() {
     return vars;
 }
 
-String.prototype.replaceAt = function(index, character) {
-		return this.substr(0, index) + character + this.substr(index + character.length);
+function replaceAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
 }
 
 function processLetter(letter) {
@@ -69,7 +69,7 @@ function processLetter(letter) {
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
 		if (remainingLetters.charAt(i) == letter) {
 			remainingLetters = remainingLetters.replaceAt(i, '_');
-			secret = secret.replaceAt(i, letter);
+			secret = replaceAt(secret, i, letter);
 			found = true;	
 		}		
 	 }      
