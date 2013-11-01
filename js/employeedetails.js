@@ -52,6 +52,7 @@ String.prototype.replaceAt = function(index, character) {
 function processLetter(letter) {
 	var found = false;
 	// alert(remainingLetters);
+	$('#exerciseContent').html(word + '' + remainingLetters);
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
 		//alert(remainingLetters.charAt(i));
 		if (remainingLetters.charAt(i) == letter) {
