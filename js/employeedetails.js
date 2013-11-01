@@ -32,7 +32,7 @@ function displayEmployee(data) {
 	
 	$('#title').html(data[0].title);
 	$('#description').html(data[0].description);
-	$('#exerciseContent').html(word);
+	$('#exerciseContent').html(word + '' + remainingLetters);
 	
 	$('.letters span').click(function(event){
 		var letter = event.target.innerText;
