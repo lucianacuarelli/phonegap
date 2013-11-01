@@ -28,6 +28,7 @@ function displayEmployee(data) {
 	
 	$('.letters span').click(function(event) 
 		var letter = event.target.innerText;
+		alert(letter);
 		$(event.target).unbind("click");
 		$(event.target).addClass("disabled");
 		processLetter(letter);
@@ -56,6 +57,7 @@ function getUrlVars() {
 }
 
 function processLetter(letter) {
+	alert(letter);
 	var found = false;
 	// alert(remainingLetters);
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
