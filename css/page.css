@@ -3,7 +3,7 @@ body {
     font-weight:bold; 
     font-size:16pt;
 }
-/* Topmatter */
+/* TOP */
 .topmatter {
     height:210px;    
 }
@@ -11,7 +11,7 @@ body {
     background:#f1f1f1;
     height:auto;
 }
-/* For the left 'Guess A Letter!' and 'Guessed Letter' boxes. */
+/* Box da esquerda */
 .side-container {
     margin-top:45px;
     margin-left:130px;
@@ -41,7 +41,7 @@ body {
 .guessed-letter {
     color:#792c15;
 }
-/* Word Box */
+/* Box de Palavras */
 .word-box {
     width:250px;
     margin:auto;
@@ -63,7 +63,7 @@ body {
     margin: 0 2px;
     color:#1c2025;
 }
-/* Hangman Area */
+/* Area do jogo de forca */
 .hang-container {
     margin-top:-10px;
     margin-right: 90px; 
