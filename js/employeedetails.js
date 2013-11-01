@@ -17,8 +17,8 @@ function displayEmployee(data) {
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
 	$('#title').html(data[0].title);
-	$('#description').innerHTML(data[0].description);
-	$('#exerciseContent').innerHTML(word);
+	$('#description').html(data[0].description);
+	$('#exerciseContent').html(word);
 	
 	/*$('#employeePic').attr('src', 'pics/james_king.png');
 	alert(exercise.title);
