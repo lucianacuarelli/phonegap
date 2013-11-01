@@ -59,9 +59,7 @@ function getUrlVars() {
 function processLetter(letter) {
 	alert(letter);
 	var found = false;
-	// alert(remainingLetters);
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
-		//alert(remainingLetters.charAt(i));
 		if (remainingLetters.charAt(i) == letter) {
 			remainingLetters = remainingLetters.replaceAt(i, '_');
 			secret = secret.replaceAt(i, letter);
@@ -71,7 +69,7 @@ function processLetter(letter) {
 	if (found) {
 		$('#secret').text(secret);
 		if (secret.indexOf('_') == -1) {
-			alert('you won!!!!!!!!!!!!!!!!!!!!!!!!!!=)');
+			alert('Você ganhou!');
 			location.reload();
 		}else {
 			currentImage++;
@@ -79,11 +77,11 @@ function processLetter(letter) {
 			$(imageId).fadeTo(300, 1.0, function() {
 				if (currentImage == 7) {
 					$('#secret').text(word)
-					alert('you lost!=(');
+					alert('Você perdeu!');
 					location.reload();
 
 				};
-			}
+			});
 		}
 	}
 }
