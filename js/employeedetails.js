@@ -56,6 +56,10 @@ function getUrlVars() {
     return vars;
 }
 
+String.prototype.replaceAt = function(index, character) {
+		return this.substr(0, index) + character + this.substr(index + character.length);
+}
+
 function processLetter(letter) {
 	alert(letter);
 	var found = false;
