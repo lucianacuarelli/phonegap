@@ -17,13 +17,14 @@ function displayEmployee(data) {
 	var word = arWords[Math.floor((Math.random()*arWords.length)+1)];
 	
 	var exer = data[0];
-	$('#employeePic').attr('src', 'pics/james_king.png');
+	$('#exerciseContent').text(word);
+	/*$('#employeePic').attr('src', 'pics/james_king.png');
 	alert(exercise.title);
 	$('#fullName').text(exer.title);
 	$('#employeeTitle').text(exer.description);
 	alert(exercexerise.description);
 	$('#city').text(exercise.exer);
-	alert(exercise.exer);
+	alert(exercise.exer);*/
 
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><h3>View Manager</h3>' +
