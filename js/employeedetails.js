@@ -28,7 +28,7 @@ function displayEmployee(data) {
 	secret = word.replace(/./g, '_');
 	secret = secret.substring(1);
 	
-	alert(secret);
+	alert(remainingLetters);
 	$('#secret').text(secret);
 	
 	$('#title').html(data[0].title);
@@ -56,8 +56,8 @@ function processLetter(letter) {
 	for (var i = 0 ; i < remainingLetters.length ; i++) {
 		//alert(remainingLetters.charAt(i));
 		if (remainingLetters.charAt(i) == letter) {
-			remainingLetters = remainingLetters.replaceAt(i, '_');
-			secret = secret.replaceAt(i, letter);
+			remainingLetters = remainingLetters.replaceAt(i-1, '_');
+			secret = secret.replaceAt(i-1, letter);
 			found = true;	
 		}		
 	 }      
